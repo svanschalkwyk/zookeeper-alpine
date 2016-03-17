@@ -1,0 +1,57 @@
+zookeeper1:
+    #dns: 
+    #- 8.8.8.8
+#    environment: 
+#        ZK_SERVER_ID: 1
+    volumes:
+        - /tmp/docker/zk1/logs:/logs
+        - /tmp/docker/zk1/data:/data    
+    command: "/usr/local/bin/zk-init.sh 1"       
+    image: remcam/zookeeper
+    #net: bridge
+    expose: 
+        - "2181"
+        - "2888"
+        - "3888" 
+        - "15000"
+        
+zookeeper2:
+#    links: 
+#        - zookeeper1:zk1
+    #dns: 
+    #- 8.8.8.8
+#    environment: 
+#        ZK_SERVER_ID: 2
+    volumes:
+        - /tmp/docker/zk2/logs:/logs
+        - /tmp/docker/zk2/data:/data  
+    command: "/usr/local/bin/zk-init.sh 2"    
+            
+    image: remcam/zookeeper
+    #net: bridge
+    expose: 
+        - "2181"
+        - "2888"
+        - "3888" 
+        - "15000"
+        
+zookeeper3:
+#    links: 
+#    -   zookeeper1:zk1
+    #dns: 
+    #- 8.8.8.8
+#    environment: 
+#        ZK_SERVER_ID: 3
+    volumes:
+        - /tmp/docker/zk3/logs:/logs
+        - /tmp/docker/zk3/data:/data           
+    command: "/usr/local/bin/zk-init.sh 3"    
+
+    image: remcam/zookeeper
+    #net: bridge
+    expose: 
+        - "2181"
+        - "2888"
+        - "3888" 
+        - "15000"
+        
